@@ -61,6 +61,25 @@ function getBlockList() {
     tempBlkPos = curPos + 1;
 }
 
+/*Update Block List*/
+function updateBlockList() {
+    var a = 0, b = 1;
+    
+    /*Shift blocks by one square*/
+    for (a = 0; a < brdCol -1; a++) {
+        blockList[a] = blockList[a+1];
+    }
+    
+    /*Get a new block*/
+    blockList[brdCol - 1] = genBlock();
+    
+    /*Clear off canvas*/
+    ctxBlock.clearRect(0, 0, canvasWidth(), canvasHeight());
+    
+    /*Display new block list*/
+    displayBlockList();
+}
+
 /*Display the available blocks*/
 function displayBlockList() {
     var i, pos = 0; 
@@ -88,8 +107,7 @@ function avlBlock() {
     /*Determine available shape*/
     /*Check down*/
     if(keyDown == lastKey) { 
-        if (blockType == 10 || blockType == 14 || blockType == 16 || blockType == 20
-                || blockType == 21 || blockType == 23 || blockType == 24) {
+        if (downBlock(blockType) == true) {
             /*Check down*/
             if (upBlock(blockList[0]) == true) {
                 return true;
@@ -100,18 +118,14 @@ function avlBlock() {
     
     /*Check Right*/
     if(keyRight == lastKey) { 
-        if (blockType == 10 || blockType == 12 || blockType == 17 || blockType == 20
-                || blockType == 21 || blockType == 22 || blockType == 24) {
+        if (rightBlock(blockType) == true) {
             /*Check left*/
             if (leftBlock(blockList[0]) == true) {
                 return true;
             }
         }
     }
-    
-    /*if (blockType == 12 || blockType == 13 || blockType == 16 || blockType == 20
-            || blockType == 21 || blockType == 22 || blockType == 23) {
-    */
+
     /*Check Up*/
     if(keyUp == lastKey) { 
         if (upBlock(blockType) == true) {
@@ -121,7 +135,6 @@ function avlBlock() {
                  return true;
              }
         }
-    
     }
     
     /*Check Left*/
@@ -135,14 +148,6 @@ function avlBlock() {
             }
         }
     }
-    
-    /*
-    space = gameBoard[check];
-        
-    if (space == 0) {
-        /*Display the block on the board
-        
-    }*/
     
     return false;
 }
@@ -162,7 +167,7 @@ function upBlock(blockType) {
 /*Determine if the block has a down path*/
 function downBlock(blockType) {
     /*Find matching block that has a down path*/
-    if (blockType == 10 || blockType == 14 || blockType == 16 || blockType == 20
+    if (blockType == 11 || blockType == 14 || blockType == 16 || blockType == 20
             || blockType == 21 || blockType == 23 || blockType == 24) {
         return true;
     }
@@ -186,7 +191,7 @@ function leftBlock(blockType) {
 /*Determine if the block has a right path*/
 function rightBlock(blockType) {
     /*Find matching block that has a right path*/
-    if (blockType == 10 || blockType == 12 || blockType == 17 || blockType == 20
+    if (blockType == 11 || blockType == 12 || blockType == 17 || blockType == 20
             || blockType == 21 || blockType == 22 || blockType == 24) {
         return true;
     }

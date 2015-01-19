@@ -213,9 +213,8 @@ function placeBlock() {
         removeTemp();
         makeMove(tempBlkPos);
 
-        /*Remove block from block list*/
-
-        /*Generate a new block in the block list*/
+        /*Update block list*/
+        updateBlockList();
     }
 }
 

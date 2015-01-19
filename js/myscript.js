@@ -203,8 +203,13 @@ function removeTemp() {
     }
 }
 
+function canvasHeight() {
+    return brdCol * blockSize;
+}
 
-
+function canvasWidth() {
+    return brdRow * blockSize;
+}
 
 
 
@@ -388,3 +393,4 @@ function testStart1() {
 function testAll20() {
     blockList[0] = 20;
 }
+

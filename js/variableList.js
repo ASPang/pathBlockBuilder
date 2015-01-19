@@ -12,6 +12,7 @@ var ctxBlock;   //Block context
 
 var gameBoard = []; //Array for the board game
 var blockList = [];  //Array for the blocks
+var blockImg = []; //Stores all the images
 
 var blockSize = 50; //Blocksize in pixels
 var brdCol = 6; //Number of columns

@@ -19,7 +19,6 @@ function keyDownEvent(e) {
     var avl;    //Non-empty space
     var noBlock;    //Empty Space
     
-    //alert(lastKey);
     /*Determine which key is pressed*/
     switch (e.keyCode) {
         case 32:
@@ -108,15 +107,16 @@ function keyDownEvent(e) {
             break;
         case 68:
             // D key pressed
-            alert("D");
+            
             break;
         case 70:
             // F key pressed
-            alert("F");
+            
             break;
     }
 }
 
+/*TESTING!!!!!!!!!! ----- SHOULD BE REMOVED*/
 function checkMoves() {
     switch (gameBoard[curPos]) {
         
@@ -201,9 +201,9 @@ function chkLeftBorder() {
 /*Place new block on the board*/
 function placeBlock() {
     var check;
+    
     /*Check if the block can be placed*/
     check = avlBlock();
-    alert(lastKey + " " + check);
     
     if (check == true ) {
         /*Update the board array*/

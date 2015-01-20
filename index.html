@@ -11,12 +11,19 @@
       
       <!-- jQuery - Enables the carousel to displayed on the page -->
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      
    </head>
 
    <body>
       <!-- Inform the user to enable JavaScript if it's disabled -->
       <noscript><h1>Please enable JavaScript</h1></noscript>
 
+      <!-- Timer Display --> 
+      <div id="gameMenuDiv">
+         <div id="countDown">???</div>
+         <button id="startButton" onclick="startTimer(60);">Start Game</button>
+         <!--button onclick="setInterval(gameOver(),1000);">Start Game</button-->
+      </div>
       <!-- Canvas -->
       <canvas id="gameCanvas" width="300" height="400">Your browser does not support the HTML5 canvas tag.</canvas>
       <canvas id="blockCanvas" width="300" height="50"></canvas>
@@ -27,22 +34,7 @@
       <script type="text/javascript" src="js/myscript.js"></script>
       <script type="text/javascript" src="js/keyboard.js"></script>
       <script type="text/javascript" src="js/blockPieces.js"></script>
-      
-      <!-- TODO -->
-      <div id="TODO">
-         <h3>TO DO LIST: </h3> 
-         <ul>
-            
-            <li>  </li>
-            <li>  </li>
-            <li>  </li>
-            <li>  </li>
-            <li>  </li>
-            <li>  </li>
-           
-         </ul>
-      </div>
-
-      
+      <script type="text/javascript" src="js/gameTimer.js"></script>
+     
    </body>
 </html>

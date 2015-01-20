@@ -27,6 +27,9 @@
     displayBlockList();
     displayTemp(tempBlkPos);  //Display temporary block
     
+    /*Start Timer*/
+    //    startTimer(3);
+    
 });
 
 function setupVar() {

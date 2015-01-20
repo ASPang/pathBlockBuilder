@@ -1,6 +1,6 @@
 /*** General Tag Sytles ***/
 body {
-    width: 100%;
+    width: 99%;
     background-color: #f4fae0;
 }
 
@@ -8,6 +8,20 @@ canvas {
     margin: auto;
     display: block;
     border: 1px solid #d3d3d3;
+}
+
+#gameMenuDiv {
+    margin: auto;
+    //display: block;
+    
+    width: 300px;    /*imgBlock x 6*/
+    height: auto;   /*imgBlock x 8*/
+    
+    text-align: left;
+}
+
+#startButton {
+    
 }
 
 #gameCanvas {

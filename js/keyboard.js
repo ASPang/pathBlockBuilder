@@ -7,10 +7,10 @@
  * 
  */
 
+/*Initiate Keyboard listener even handler*/
 window.addEventListener("keydown", keyDownEvent, false);
-//window.addEventListener("keypress", keyDownEvent, false);
-//window.addEventListener("keyup", keyDownEvent, false);
 
+/*Keyboard event handler*/
 function keyDownEvent(e) {
     var left = -1,
             right = 1,
@@ -18,6 +18,10 @@ function keyDownEvent(e) {
             down = brdCol;
     var avl;    //Non-empty space
     var noBlock;    //Empty Space
+    
+    if (endGameFlag == true) {
+        return false;
+    }
     
     /*Determine which key is pressed*/
     switch (e.keyCode) {
@@ -116,23 +120,19 @@ function keyDownEvent(e) {
     }
 }
 
-/*TESTING!!!!!!!!!! ----- SHOULD BE REMOVED*/
-function checkMoves() {
-    switch (gameBoard[curPos]) {
-        
-    }
-}
-
-/*Return a variable:
- *0 = not a valid move or there's no block for them to move to
+/*Determine if the user can move to an area on the canvas.
+ * Return a variable:
+ * 0 = not a valid move or there's no block for them to move to
  */
 function checkNext(direction, position) {
     var newPos;
-    
+    var numSq = brdCol * brdRow + 1;
+   
+    /*Calculate the position in relation to the array*/
     newPos = position + direction;
     
     /*Determine if it's within the canvas*/
-    if ((newPos < 0) || (newPos > (brdCol * brdRow))) {
+    if ((newPos < 0) || (newPos > numSq)) {
         return 0;
     }
     /*Determine if there's an object on the left side*/
@@ -201,6 +201,7 @@ function chkLeftBorder() {
 /*Place new block on the board*/
 function placeBlock() {
     var check;
+    var numSq = brdCol * brdRow;
     
     /*Check if the block can be placed*/
     check = avlBlock();
@@ -215,6 +216,9 @@ function placeBlock() {
 
         /*Update block list*/
         updateBlockList();
+        
+        /*Update Score*/
+        document.getElementById('countScore').innerHTML = "Area Covered: " + areaCovered() + "/" + numSq;
     }
 }
 

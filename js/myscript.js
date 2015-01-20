@@ -1,16 +1,10 @@
-/*Include Header and Navbar
- $(function() {
-    $(".menuBar").load("menuBar.html");
- });*/
-
- /*Include Footer
- $(function() {
-    $(".footerBar").load("footer.html");
- });*/
-
- /*Onload*/
+/*Onload*/
  $(function ()  {     
-     /*Preload images*/
+    initGame();
+});
+
+function initGame() {
+    /*Preload images*/
      preloadBlockImg();
      
     /*Set up the board*/
@@ -26,11 +20,7 @@
     getBlockList();
     displayBlockList();
     displayTemp(tempBlkPos);  //Display temporary block
-    
-    /*Start Timer*/
-    //    startTimer(3);
-    
-});
+}
 
 function setupVar() {
      /*Setting up the canvas*/
@@ -44,14 +34,13 @@ function setupVar() {
  /*Create an empty array for the board*/
  function blockAry() {
      var pos = 0;
-     var numSq = brdCol * brdRow;
+     var numSq = brdCol * brdRow + 1;
      
     for (pos = 0; pos < numSq; pos++) {
         gameBoard[pos] = 0;
     }
     
     gameBoard[startPos] = 20;
-    //gameBoard[startPos-1] = 20; //TESTING!!!!!!!!
  }
  
  /*Set up the inital Board*/
@@ -70,17 +59,8 @@ function setupBoard() {
     yPos = getYPos(col);
     
     /*Create the starting position*/
-    //ctx.fillStyle="#FF0000";
     ctx.globalAlpha=0.6;
-    //ctx.fillRect(yPos,xPos,blockSize,blockSize);  
-    
-    //ctx.drawImage(blockImg(gameBoard[startPos]), yPos, xPos); //, blockSize, blockSize);
-    
-    //alert(blockImg(gameBoard[startPos]));
     ctx.drawImage(blockImg[gameBoard[startPos]], yPos, xPos, blockSize, blockSize);
-    //
-    //ctx.globalAlpha=1;
-    //ctx.fillRect(yPos-50,xPos,blockSize,blockSize);  
 }
 
 
@@ -98,9 +78,7 @@ function getRow(blockNum) {
     else {
         row = parseInt(blockNum / brdCol  - 1);
     }
-    
-    //alert(reminder + " " + blockNum + " "  + brdCol + " " + row); //TESTING!!!!!!!!!!
-    
+        
     return row;
 }
 
@@ -140,8 +118,6 @@ function makeMove(newPos) {
     redrawPos(0.6);
 }
 
-
-
 function redrawPos(shade) {
     var xPos, yPos, row, col;
     
@@ -153,16 +129,11 @@ function redrawPos(shade) {
     xPos = getXPos(row);
     yPos = getYPos(col);
     
-    
+    /*Remove image*/
     ctx.clearRect(yPos, xPos, blockSize, blockSize);
-    /*ctx.fillStyle="#FF0000";
-    ctx.globalAlpha=shade;
-    ctx.fillRect(yPos,xPos,blockSize,blockSize);  */
     
-    //ctx.font = "50px Arial";
-    ctx.fillStyle="#FF0000";
-    ctx.globalAlpha=shade;
-    //ctx.fillText(gameBoard[curPos],yPos,xPos+50);
+    /*Added faded image*/
+    ctx.globalAlpha=shade;    
     ctx.drawImage(blockImg[gameBoard[curPos]], yPos, xPos, blockSize, blockSize);
 }
 
@@ -202,11 +173,16 @@ function removeTemp() {
     }
 }
 
-function canvasHeight() {
-    return brdCol * blockSize;
+/*Clear entire canvas*/
+function clearCanvas() {
+    ctx.clearRect(0, 0,  canvasWidth(), canvasHeight());
 }
 
 function canvasWidth() {
+    return brdCol * blockSize;
+}
+
+function canvasHeight() {
     return brdRow * blockSize;
 }
 

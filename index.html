@@ -2,39 +2,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <title>Path Builder</title>
+      <title>Path Block Builder</title>
       <meta name="description" content="Building block game in covering the most amount of area" />
 
       <!-- Stylesheets -->
-      <!--link rel="stylesheet" href="./bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" type="text/css" /-->
       <link href="css/styles.css" rel="stylesheet" type="text/css" />
-      
+
       <!-- jQuery - Enables the carousel to displayed on the page -->
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      
+
    </head>
 
    <body>
       <!-- Inform the user to enable JavaScript if it's disabled -->
       <noscript><h1>Please enable JavaScript</h1></noscript>
+      <div id="content">
+         <div id="gameContent">            
+            <!-- Game Information Display --> 
+            <div class="gameMenuDiv">
+               <!-- Game Title -->
+               <h1>Path Block Builder</h1>
+               
+               <div id="countDown">Time Remaining: 0 second</div>
+               <div id="countScore">Area Covered: 0</div>
+               <div id="rounds">Number of Rounds: 0</div>
+            </div>
 
-      <!-- Timer Display --> 
-      <div id="gameMenuDiv">
-         <div id="countDown">???</div>
-         <button id="startButton" onclick="startTimer(60);">Start Game</button>
-         <!--button onclick="setInterval(gameOver(),1000);">Start Game</button-->
+            <!-- Canvas -->
+            <canvas id="gameCanvas" width="300" height="400">Your browser does not support the HTML5 canvas tag.</canvas>
+            <canvas id="blockCanvas" width="300" height="50"></canvas>
+            
+            <!-- Start Button -->
+            <div id="gameStartDiv">
+               <button id="startButton" onclick="startTimer(60);" onfocus="this.blur()">Start Game</button>
+            </div>
+            
+         </div>
+         <hr></hr>
+         <div id="infoDiv">
+            <h4>Path Block Builder Instructions</h4>
+            <h5>How To Start:</h5>
+            <p>To start the game click the "Start Game" button below the game window.</p>
+            
+            <h5>Controls</h5>
+            <ul>
+               <li>
+                  Arrow Keys - Use the keyboard arrow keys to move around the game
+                  window and determine where to put the block. 
+               </li>
+               <li>
+                  Space Bar - Use the space bar to place a block on the canvas. 
+               </li>
+            </ul>
+            
+            <h5>Game Play</h5>
+            <p>
+               The goal of the game is to cover at least 40% of the canvas (20/48 squares)
+               within the given time limit. If successful you will gain access to the next 
+               round. Each round will give you a shorter time limit to cover 40% of the space.
+            </p>
+            <p>
+               The possible blocks that can be played in order are randomly generated 
+               and can found lined up horizontally below the game window. As each block
+               is gets played the line will shift right with new block 
+               generated at the end of the line.
+            </p>
+         </div>
       </div>
-      <!-- Canvas -->
-      <canvas id="gameCanvas" width="300" height="400">Your browser does not support the HTML5 canvas tag.</canvas>
-      <canvas id="blockCanvas" width="300" height="50"></canvas>
-      
-      
+
       <!-- JavaScript -->
       <script type="text/javascript" src="js/variableList.js"></script>
       <script type="text/javascript" src="js/myscript.js"></script>
       <script type="text/javascript" src="js/keyboard.js"></script>
       <script type="text/javascript" src="js/blockPieces.js"></script>
       <script type="text/javascript" src="js/gameTimer.js"></script>
-     
    </body>
 </html>

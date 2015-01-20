@@ -1,3 +1,15 @@
+/* 
+ * Coder: Angela Pang
+ * 
+ * Assignment: CIS4500 Week 1 - Interlocking Block
+ * Date: 2015/01/14
+ * 
+ * Filename: gameTimer.js
+ * 
+ * Description:
+ * This files contains the function that keeps track of the gameplay time.
+ * 
+ */
 
 var gameTimer;
 var startClock;
@@ -40,7 +52,7 @@ function gameOver(countDownTime) {
     }      
 }
 
-
+/*Start the appropriate timer depending how many rounds user has passed*/
 function startTimer(countDownTime) {
     startClock = new Date().getTime();
     var numSq = brdCol * brdRow;

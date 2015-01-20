@@ -1,9 +1,14 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
+ * Coder: Angela Pang
+ * 
+ * Assignment: CIS4500 Week 1 - Interlocking Block
+ * Date: 2015/01/14
+ * 
+ * Filename: keyboard.js
+ * 
+ * Description:
+ * This files contains the function that determines the appropriate action for 
+ * the key that was pressed. 
  * 
  */
 

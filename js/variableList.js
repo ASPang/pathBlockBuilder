@@ -1,9 +1,15 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Coder: Angela Pang
+ * 
+ * Assignment: CIS4500 Week 1 - Interlocking Block
+ * Date: 2015/01/14
+ * 
+ * Filename: variableList.js
+ * 
+ * Description:
+ * This files contains the variables within the interlocking block game.
+ * 
  */
-
 
 var c;  //Canvas variable
 var ctx;    //Canvas Context

@@ -1,10 +1,14 @@
 /* 
  * Coder: Angela Pang
  * 
- * Assignment:
- * Date:
+ * Assignment: CIS4500 Week 1 - Interlocking Block
+ * Date: 2015/01/14
+ * 
+ * Filename: blockPieces.js
  * 
  * Description:
+ * This files contains the function that generates the blocks for the canvas and
+ * determines if the curosor can go to a specific area in the game window.
  * 
  */
 
